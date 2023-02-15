@@ -1,25 +1,17 @@
-name: Workflow de exemplo
-on:
-  push:
-  
-env:
-  VARIAVEL_1: Marcelo
-  VARIAVEL_2: Curitiba
+name: Workflow checkout e upload
+on: push
   
 jobs:
-
   checkout_code:
-    name: Faz checkout do codigo
+    name: Checkout codigo
     runs-on: ubuntu-latest
-    env:
-      VARIAVEL_JOB: 33
+
+  steps:
+   - name: Checkout repositorio
+     uses: actions/checkout@v3.3.0
       
-   steps:
-    - name: Checkout repositório
-      uses: actions/checkout@v3.3.0
-      
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.1.2
-      with:
-        name: ${{ vars.AMB_DEPLOY }}
-        path: .
+   - name: Upload a Build Artifact
+     uses: actions/upload-artifact@v3.1.2
+     with:
+       name: ${{ vars.AMB_DEPLOY }}
+       path: .
