@@ -5,13 +5,13 @@ jobs:
   checkout_code:
     name: Checkout codigo
     runs-on: ubuntu-latest
-
-  steps:
-  - name: Checkout repositorio
-    uses: actions/checkout@v3.3.0
+    
+    steps:
+    - name: Checkout repositorio
+      uses: actions/checkout@v3.3.0
       
-  - name: Upload a Build Artifact
-    uses: actions/upload-artifact@v3.1.2
-    with:
-      name: ${{ vars.AMB_DEPLOY }}
-      path: .
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        name: ${{ vars.AMB_DEPLOY }}
+        path: .
